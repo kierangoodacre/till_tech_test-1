@@ -1,0 +1,33 @@
+As a vendor
+I want to be able to charge money for my products
+So that I can make money
+
+As a vendor
+I want to be able to sum up a bill
+So that I can increase efficiency an reduce mistakes
+
+As a vendor
+I want the prices of my products stored
+So that I can increase efficiency
+
+As a vendor
+I want the tax of 8.64% to be automatically added to the bill
+So that I can increase efficiency and reduce mistakes
+
+
+Till-Tech-Test
+====================
+
+###Object - Till
+
+Responsibilites             | Collaborators
+----------------------------|------------------
+Add price                   | Vendor
+Can store price & Item      | Vendor
+Add tax                     | Vendor
+
+###Object - Vendor
+
+Responsibilites             | Collaborators
+----------------------------|------------------
+Enter Item                  | Till
