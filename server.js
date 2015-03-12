@@ -1,6 +1,7 @@
 var express = require('express');
 var app = express();
 var server = require('http').createServer(app);
+var coffee = require('./hipstercoffee.json');
 
 app.set('view engine', 'ejs');
 app.use('/stylesheets', express.static(__dirname + '/public/stylesheets'));
@@ -8,6 +9,10 @@ app.use('/javascripts', express.static(__dirname + '/public/javascripts'));
 
 app.get('/', function(request, response){
   response.render("index")
+});
+
+app.get('/coffee', function(request, response){
+	response.send(coffee);
 });
 
 server.listen(3000, function(){

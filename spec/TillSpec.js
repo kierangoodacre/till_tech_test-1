@@ -23,14 +23,19 @@ describe('Till', function(){
 		it('Can be carried out by till', function(){
 			till.addItemPrice(10.5);
 			till.addItemPrice(11);
-			expect(till.total()).toEqual(23.3576);
+			expect(till.total()).toEqual(21.5);
 		});
 
-		it('Adds tax of 8.64% to the bill', function(){
+		it('Tax can be added seperate', function(){
 			till.addItemPrice(10);
-			expect(till.total()).toEqual(10.864);
+			expect(till.totalPlusTax()).toEqual(10.864);
 		});
 
+	});
+
+	describe('Items from menu', function(){
+		till.addMenuItem('Caffe Latte');
+		expect(till.total()).toEqual(4.75)
 	});
 
 });

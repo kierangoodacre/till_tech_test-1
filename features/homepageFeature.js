@@ -24,14 +24,4 @@ describe('Homepage Tests', function() {
       .call(done);
   });
 
-  it('Homepage Title Displays',function(done) {
-  client
-    .url('http://localhost:3000')
-    .getText('h1', function(err, text) {
-      expect(err).to.not.be.true;
-      expect(text).to.eql('Hello Makers');
-    }) 
-    .call(done);
-  });
-
 });
