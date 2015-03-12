@@ -34,8 +34,17 @@ describe('Till', function(){
 	});
 
 	describe('Items from menu', function(){
-		till.addMenuItem('Caffe Latte');
-		expect(till.total()).toEqual(4.75)
+		
+		it('Can be added to bill', function(){
+			till.addMenuItem('Cafe Latte');
+			expect(till.total()).toEqual(4.75)
+		});
+
+		it('Can be added to receipt', function(){
+			till.addMenuItem('Cafe Latte');
+			expect(till.receipt).toEqual({'Cafe Latte': 4.75});
+		});
+
 	});
 
 });

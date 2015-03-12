@@ -1,6 +1,9 @@
+var menu = menu;
+
 var Till = function(){
 	this.bill = [];
 	this.tax = 8.64;
+	this.receipt = {};
 };
 
 Till.prototype.addItemPrice = function(price){
@@ -26,3 +29,14 @@ Till.prototype.totalPlusTax = function(){
 		return a + b;
 	}
 };
+
+Till.prototype.addMenuItem = function(item){
+	this.bill.push(menu.prices[item]);
+	this.receipt[item] = menu.prices[item];
+};
+
+
+
+
+
+
