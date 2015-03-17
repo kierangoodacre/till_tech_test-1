@@ -2,10 +2,12 @@ describe('Till', function(){
 
 	var till;
 	var receipt;
+	var bill;
 
 	beforeEach(function(){
 		till = new Till();
 		receipt = new Receipt();
+		bill = new Bill();
 	});
 
 	describe('Adding items', function(){
@@ -39,10 +41,10 @@ describe('Till', function(){
 
 	describe('Items from menu', function(){
 		
-		// it('Can be added to bill', function(){
-		// 	till.addMenuItem('Cafe Latte');
-		// 	expect(till.bill).toEqual([4.75])
-		// });
+		it('Can be added to bill', function(){
+			till.addMenuItemPrice(bill, 'Cafe Latte');
+			expect(till.billPrint(bill)).toEqual([4.75])
+		});
 
 		it('Can be added to receipt', function(){
 			till.addMenuItem(receipt, 'Cafe Latte');

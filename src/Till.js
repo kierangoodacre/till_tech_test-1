@@ -36,6 +36,16 @@ Till.prototype.receiptPrint = function(receipt){
 	return receipt.tab;
 };
 
+Till.prototype.addMenuItemPrice = function(bill, item){
+	bill.addItemPrice(item);
+};
+
+Till.prototype.billPrint = function(bill){
+	return bill.tally;
+};
+
+
+
 
 
 
