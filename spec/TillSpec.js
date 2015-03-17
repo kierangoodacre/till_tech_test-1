@@ -37,7 +37,7 @@ describe('Till', function(){
 		
 		it('Can be added to bill', function(){
 			till.addMenuItem('Cafe Latte');
-			expect(till.total()).toEqual(4.75)
+			expect(till.bill).toEqual(4.75)
 		});
 
 		it('Can be added to receipt', function(){

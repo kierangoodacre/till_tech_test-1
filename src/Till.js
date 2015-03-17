@@ -31,9 +31,10 @@ Till.prototype.totalPlusTax = function(){
 };
 
 Till.prototype.addMenuItem = function(item){
-	this.bill.push(menu.prices[item]);
+	this.bill.push(menu.price[item]);
 	this.receipt[item] = menu.prices[item];
 };
+
 
 
 
