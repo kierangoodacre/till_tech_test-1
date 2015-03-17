@@ -1,9 +1,7 @@
-var menu = menu;
-
 var Till = function(){
 	this.bill = [];
 	this.tax = 8.64;
-	this.receipt = {};
+
 };
 
 Till.prototype.addItemPrice = function(price){
@@ -30,10 +28,15 @@ Till.prototype.totalPlusTax = function(){
 	}
 };
 
-Till.prototype.addMenuItem = function(item){
-	this.bill.push(menu.price[item]);
-	this.receipt[item] = menu.prices[item];
+Till.prototype.addMenuItem = function(receipt, item){
+	receipt.addItemAndPrice(item);
 };
+
+Till.prototype.receiptPrint = function(receipt){
+	return receipt.tab;
+};
+
+
 
 
 
