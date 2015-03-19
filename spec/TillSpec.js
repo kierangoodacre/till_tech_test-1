@@ -3,38 +3,25 @@ describe('Till', function(){
 	var till;
 	var receipt;
 	var bill;
+	var tax;
 
 	beforeEach(function(){
 		till = new Till();
 		receipt = new Receipt();
 		bill = new Bill();
-	});
-
-	describe('Adding items', function(){
-
-		it('Default of no items on till', function(){
-			expect(till.bill).toEqual([]);
-		});
-
-		it('To bill', function(){
-			till.addItemPrice(10);
-			till.addItemPrice(11);
-			expect(till.bill).toEqual([10, 11]);
-		});
-
+		tax = new Tax();
 	});
 
 	describe('Calculations', function(){
 
 		it('Can be carried out by till', function(){
-			till.addItemPrice(10.5);
-			till.addItemPrice(11);
-			expect(till.total()).toEqual(21.5);
+			till.addMenuItemPrice(bill, 'Cafe Latte');
+			expect(till.total(bill)).toEqual(4.75);
 		});
 
 		it('Tax can be added seperate', function(){
-			till.addItemPrice(10);
-			expect(till.totalPlusTax()).toEqual(10.864);
+			till.addMenuItemPrice(bill, 'Cafe Latte');
+			expect(till.totalPlusTax()).toEqual(5.1604);
 		});
 
 	});
@@ -47,10 +34,18 @@ describe('Till', function(){
 		});
 
 		it('Can be added to receipt', function(){
-			till.addMenuItem(receipt, 'Cafe Latte');
+			till.addMenuItem(receipt, bill, 'Cafe Latte');
 			expect(till.receiptPrint(receipt)).toEqual({'Cafe Latte': 4.75});
 		});
 
 	});
+
+	// describe('Change', function(){
+
+	// 	it('Can be given based on items on bill', function(){
+	// 		till.
+	// 	});
+
+	// });
 
 });
