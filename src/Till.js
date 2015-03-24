@@ -2,25 +2,25 @@ var Till = function(){
 };
 
 Till.prototype.addTax = function(){
-	return (tax.percentage / 100 + 1)
+	return (tax.percentage / 100 + 1);
 };
 
 Till.prototype.total = function(bill){
 	return bill.tally.reduce(this._addPrices, 0);
 };
 
-Till.prototype.totalPlusTax = function(){
+Till.prototype.totalPlusTax = function(bill){
 	return (bill.tally.reduce(this._addPrices, 0) * this.addTax());
 };
 
-Till.prototype.receiptPrint = function(receipt){
-	return receipt.tab;
-};
 Till.prototype.addMenuItem = function(receipt, bill, item){
 	receipt.addItemAndPrice(item);
 	this.addMenuItemPrice(bill, item);
 };
 
+Till.prototype.receiptPrint = function(receipt){
+	return receipt.tab;
+};
 
 Till.prototype.addMenuItemPrice = function(bill, item){
 	bill.addItemPrice(item);
@@ -30,17 +30,21 @@ Till.prototype.billPrint = function(bill){
 	return bill.tally;
 };
 
+Till.prototype.changeDue = function(cash, bill){
+	return (cash - this.totalPlusTax(bill));
+};
+
+//private
+
+Till.prototype._calculateChange = function(cash){
+	(cash - this.totalPlusTax());
+};
+
 Till.prototype._addPrices = function(a,b) {
 		return a + b;
 };
 
-
-
-
-
-
-
-
-
-
-
+till = new Till();
+bill = new Bill();
+tax = new Tax();
+receipt = new Receipt();

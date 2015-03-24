@@ -21,13 +21,14 @@ describe('Till', function(){
 
 		it('Tax can be added seperate', function(){
 			till.addMenuItemPrice(bill, 'Cafe Latte');
-			expect(till.totalPlusTax()).toEqual(5.1604);
+			till.addMenuItemPrice(bill, 'Cafe Latte');
+			expect(till.totalPlusTax(bill)).toEqual(10.3208);
 		});
 
 	});
 
 	describe('Items from menu', function(){
-		
+
 		it('Can be added to bill', function(){
 			till.addMenuItemPrice(bill, 'Cafe Latte');
 			expect(till.billPrint(bill)).toEqual([4.75])
@@ -40,12 +41,14 @@ describe('Till', function(){
 
 	});
 
-	// describe('Change', function(){
+	describe('Change', function(){
 
-	// 	it('Can be given based on items on bill', function(){
-	// 		till.
-	// 	});
+		it('Can be given based on items on bill', function(){
+			till.addMenuItem(receipt, bill, 'Cafe Latte');
+			till.addMenuItemPrice(bill, 'Cafe Latte');
+			expect(till.changeDue(20, bill)).toEqual(9.6792);
+		});
 
-	// });
+	});
 
 });

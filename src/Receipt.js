@@ -3,5 +3,9 @@ var Receipt = function(){
 };
 
 Receipt.prototype.addItemAndPrice = function(item){
-	this.tab[item] = menu.prices[item];
+	if (this.tab.hasOwnProperty(item)){
+    this.tab[item] += menu.prices[item];
+  } else {
+    this.tab[item] = menu.prices[item];
+  }
 };
