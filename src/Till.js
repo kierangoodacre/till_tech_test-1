@@ -1,10 +1,6 @@
 var Till = function(){
 };
 
-// Till.prototype.addTax = function(){
-// 	return (tax.percentage / 100 + 1);
-// };
-
 Till.prototype.total = function(bill){
 	return bill.tally.reduce(this._addPrices, 0);
 };
