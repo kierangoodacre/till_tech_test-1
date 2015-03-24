@@ -45,10 +45,10 @@ describe('Till', function(){
 
 		it('Can be given based on items on bill', function(){
 			till.addMenuItem(receipt, bill, 'Cafe Latte');
-			till.addMenuItemPrice(bill, 'Cafe Latte');
+			till.addMenuItem(receipt, bill, 'Cafe Latte');
 			expect(till.changeDue(20, bill)).toEqual(9.6792);
 		});
 
 	});
-
+	
 });

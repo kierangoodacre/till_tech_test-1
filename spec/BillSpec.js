@@ -17,7 +17,8 @@ describe('Bill', function(){
 
 		it('Tax can be added to bill', function(){
 			bill.addItemPrice('Cafe Latte');
-			expect(bill.tallyWithTax()).toEqual(5.1604);
+			bill.addItemPrice('Cafe Latte');
+			expect(bill.tallyWithTax()).toEqual(10.3208);
 		});
 
 	});
