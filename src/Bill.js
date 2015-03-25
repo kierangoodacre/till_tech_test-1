@@ -11,7 +11,7 @@ Bill.prototype.taxCalculation = function(){
 };
 
 Bill.prototype.tallyWithTax = function(){
-	return (bill.tally.reduce(this._addPrices, 0) * this.taxCalculation());
+	return (this.tally.reduce(this._addPrices, 0) * this.taxCalculation(tax));
 };
 
 Bill.prototype._addPrices = function(a,b) {
