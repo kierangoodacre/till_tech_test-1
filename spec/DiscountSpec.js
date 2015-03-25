@@ -16,4 +16,12 @@ describe('Discount', function(){
 
   });
 
+  describe('Applied', function(){
+
+    it('To cash amounts over threshold', function(){
+      expect(discount.applyDiscount(50)).toEqual(47.5);
+    });
+
+  });
+
 });
