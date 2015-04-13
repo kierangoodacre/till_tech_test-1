@@ -1,7 +1,7 @@
 var expect = require('chai').expect;
 var webdriverio = require('webdriverio');
 
-describe('Homepage Tests', function() {
+describe('Till Page Tests', function() {
 
   var client = {};
 
@@ -20,7 +20,7 @@ describe('Homepage Tests', function() {
       .getText('h1', function(err, text) {
         expect(err).to.not.be.true;
         expect(text).to.eql('Hello Makers');
-      }) 
+      })
       .call(done);
   });
 
