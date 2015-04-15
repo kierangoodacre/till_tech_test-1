@@ -14,7 +14,7 @@ describe('Till Page Tests', function() {
     client.end(done)
   });
 
-  it('Homepage Title Displays',function(done) {
+  it('Homepage title displays ',function(done) {
     client
       .url('http://localhost:3000')
       .getText('h1', function(err, text) {
